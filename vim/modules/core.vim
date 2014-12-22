@@ -21,7 +21,7 @@ set splitbelow
 set splitright
 
 " Enable mouse in normal mode. Great for resizing windows.
-set mouse=n
+set mouse=a
 
 " Make session files minimal.
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
