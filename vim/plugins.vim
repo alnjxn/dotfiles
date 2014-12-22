@@ -22,6 +22,8 @@ Plug 'xolox/vim-misc'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'digitaltoad/vim-jade'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
