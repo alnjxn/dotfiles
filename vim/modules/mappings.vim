@@ -68,5 +68,6 @@ nnoremap <silent> <leader><Space> :nohlsearch<Bar>:echo<CR>
 " Removes all trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Cycle through buffers
-map <D-b> :bnext<cr>
+" Cycle through listed buffers
+nnoremap <silent> <C-n> :bnext<CR>
+nnoremap <silent> <C-b> :bprevious<CR>
