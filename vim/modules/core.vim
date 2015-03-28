@@ -1,3 +1,17 @@
+" Set Fonts
+if has('gui_running')
+  " set guifont=Inconsolata\ for\ Powerline:h15
+  " set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  " set guifont=Sauce\ Code\ Powerline\ Semibold:h13
+  " set guifont=Sauce\ Code\ Powerline\ Light:h13
+  " set guifont=Source\ Code\ Pro\ Medium:h13
+  set guifont=Monaco\ for\ Powerline:h13
+endif
+
+" Disable scrollbars in gui
+:set guioptions-=L
+:set guioptions-=R
+
 " Enable relative line numbers.
 set relativenumber
 
