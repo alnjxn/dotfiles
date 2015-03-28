@@ -32,4 +32,3 @@ Plug 'Lokaltog/vim-easymotion', { 'on': '<Plug>(easymotion-prefix)' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'walm/jshint.vim', { 'on': 'JSHint' }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-Plug 'amdt/vim-niji', { 'for': ['clojure', 'javascript'] }
