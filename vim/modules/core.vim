@@ -58,3 +58,6 @@ endif
 
 " Remove all trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Disable right side scroll bar in mvim
+set guioptions-=r
