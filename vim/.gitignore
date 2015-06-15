@@ -6,3 +6,4 @@ sessions/
 autoload/plug.vim
 autoload/plug.vim.old
 revert.sh
+node_modules/
