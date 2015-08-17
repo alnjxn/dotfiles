@@ -28,3 +28,5 @@ augroup after_colorscheme
   autocmd!
   autocmd ColorScheme * call s:after_colorscheme()
 augroup END
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
