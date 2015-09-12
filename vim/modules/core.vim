@@ -5,7 +5,8 @@ if has('gui_running')
   " set guifont=Sauce\ Code\ Powerline\ Semibold:h13
   " set guifont=Sauce\ Code\ Powerline\ Light:h13
   " set guifont=Source\ Code\ Pro\ Medium:h13
-  set guifont=Monaco\ for\ Powerline:h12
+  " set guifont=Monaco\ for\ Powerline:h12
+  set guifont=Hack:h12
 endif
 
 " Disable scrollbars in gui
