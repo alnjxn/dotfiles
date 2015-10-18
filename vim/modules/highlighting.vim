@@ -2,7 +2,6 @@
 set hlsearch
 
 " Enable Color Column
-" set colorcolumn=80
 set textwidth=80
 set colorcolumn=+1
 
@@ -20,11 +19,11 @@ function! s:after_colorscheme()
 
   " Highlight trailing whitespace.
   highlight SpecialKey ctermfg=white guifg=white
-  highlight ExtraWhitespace ctermfg=white ctermbg=1 guifg=white guibg=red
+  highlight ExtraWhitespace ctermfg=white ctermbg=1 guifg=white guibg=magenta
   match ExtraWhitespace /\s\+$/
 
   " Highlight color column
-  "highlight ColorColumn ctermbg=0
+  "highlight ColorColumn ctermbg=black guibg=black
 endfunction
 
 augroup after_colorscheme
