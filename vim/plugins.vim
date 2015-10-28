@@ -24,10 +24,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'digitaltoad/vim-jade'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'justinj/vim-react-snippets'
+Plug 'mxw/vim-jsx'
 Plug 'luochen1990/rainbow'
 
 " On-demand loading
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Lokaltog/vim-easymotion', { 'on': '<Plug>(easymotion-prefix)' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
