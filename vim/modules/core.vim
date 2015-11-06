@@ -14,7 +14,7 @@ set relativenumber
 " plugins depend on it during start up.
 set backspace=indent,eol,start
 
-" Use fource spaces as indentation.
+" Use two spaces as indentation.
 " This is just a default, filetypes may override.
 set expandtab
 set tabstop=2

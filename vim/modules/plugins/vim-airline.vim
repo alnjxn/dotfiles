@@ -1,3 +1,5 @@
+let g:airline_theme="jellybeans"
+
 if has('gui_running')
   " Enable powerline symbols
   let g:airline_powerline_fonts = 1

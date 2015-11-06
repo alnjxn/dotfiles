@@ -34,3 +34,6 @@ augroup END
 " Markdown Settings
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+" .ejs syntax support
+autocmd BufNewFile,BufRead *.ejs set filetype=html
