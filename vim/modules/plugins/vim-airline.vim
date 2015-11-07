@@ -1,4 +1,4 @@
-let g:airline_theme="jellybeans"
+let g:airline_theme='oceanicnext'
 
 if has('gui_running')
   " Enable powerline symbols
