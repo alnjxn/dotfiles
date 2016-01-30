@@ -1,0 +1,9 @@
+;Default environment names
+filename=./.envset
+exportEnvironment=NODE_ENV
+
+[environments]
+names[]=test
+names[]=staging
+names[]=production
+names[]=development
