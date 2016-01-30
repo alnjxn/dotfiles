@@ -1,0 +1,5 @@
+[user]
+	name = Alan Jackson
+	email = a.jackson@case-inc.com
+[push]
+	default = simple
