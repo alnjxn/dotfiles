@@ -9,7 +9,6 @@ Plug 'mhartington/oceanic-next'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'chriskempson/base16-vim'
 Plug 'alnjxn/base16-OceanicNext'
-" Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline'
 Plug 'valloric/MatchTagAlways'
 Plug 'ryanoasis/vim-devicons'
@@ -163,7 +162,8 @@ nnoremap <silent> <leader>gf :<C-u>Gfetch<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_javascript_checkers = ['jscs', 'eslint']
+" let g:syntastic_javascript_checkers = ['jscs', 'eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_check_on_open = 0
 
 let g:syntastic_aggregate_errors = 1

@@ -34,9 +34,9 @@ alias sz="source ~/.zshrc"
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# nenv
-export PATH="$HOME/.nenv/bin:$PATH"
-eval "$(nenv init -)"
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
 
 # added by travis gem
 [ -f /Users/a.jackson/.travis/travis.sh ] && source /Users/a.jackson/.travis/travis.sh

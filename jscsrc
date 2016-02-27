@@ -9,5 +9,8 @@
     "node_modules/**"
   ],
   "requireTrailingComma": false,
-  "validateQuoteMarks": null
+  "validateQuoteMarks": null,
+  "requireCamelCaseOrUpperCaseIdentifiers": {
+    "ignoreProperties": true
+  },
 }
