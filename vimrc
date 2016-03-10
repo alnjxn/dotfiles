@@ -10,6 +10,7 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'chriskempson/base16-vim'
 Plug 'alnjxn/base16-OceanicNext'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'valloric/MatchTagAlways'
 Plug 'ryanoasis/vim-devicons'
 
