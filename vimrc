@@ -45,6 +45,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'othree/yajs.vim'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
+Plug 'heavenshell/vim-jsdoc'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -254,6 +255,14 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Align blocks of text and keep them selected
 vmap < <gv
 vmap > >gv
+
+" ----------------------------------------------------------------------------
+" JSDoc
+" ----------------------------------------------------------------------------
+nmap <silent> <C-l> :JsDoc<CR>
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_input_description = 1
 
 " ----------------------------------------------------------------------------
 " Motion and Movement
