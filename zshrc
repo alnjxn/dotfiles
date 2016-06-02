@@ -14,6 +14,7 @@ export EDITOR="vim"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.5.1/libexec"
 export AWS_HOME=~/.aws
+export BLUEBIRD_DEBUG=0
 
 # z jump fix
 [[ -s $(brew --prefix)/etc/profile.d/z.sh ]] && . $(brew --prefix)/etc/profile.d/z.sh
@@ -29,6 +30,8 @@ alias drmi="docker rmi"
 alias dcu="docker-compose up"
 alias v="vim"
 alias sz="source ~/.zshrc"
+alias pg="postgres -D /usr/local/var/postgres"
+
 
 # rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
