@@ -1,13 +1,10 @@
-" ----------------------------------------------------------------------------
+  " ----------------------------------------------------------------------------
 " Vim Plug
 " ----------------------------------------------------------------------------
 " Required
 call plug#begin('~/.vim/plugged')
 
 " Interface, Theme, Colorscheme
-Plug 'mhartington/oceanic-next'
-Plug 'gosukiwi/vim-atom-dark'
-Plug 'chriskempson/base16-vim'
 Plug 'alnjxn/base16-OceanicNext'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -29,7 +26,7 @@ Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'alnjxn/babel-vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
@@ -37,19 +34,20 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Javascript, Node, React
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'moll/vim-node'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'heavenshell/vim-jsdoc'
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 
 " Git
 Plug 'airblade/vim-gitgutter'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Tim Pope
 Plug 'tpope/vim-commentary'
@@ -77,7 +75,7 @@ set wildmenu
 set wildmode=full
 set incsearch
 
-let mapleader = ","
+let mapleader = " "
 " Load custom snippets directory
 set runtimepath+=~/.nvim/snippets/
 " Move Vim directories
@@ -247,6 +245,9 @@ let g:used_javascript_libs = 'jquery,underscore,backbone,react,flux,requirejs,ha
 highlight ExtraWhitespace ctermbg=1 guibg=magenta
 " Remove all trailing whitespace on save
 autocmd BufWritePre * StripWhitespace
+" Enable proper vim-json behavior on insert mode
+autocmd InsertEnter *.json setlocal concealcursor=
+autocmd InsertLeave *.json setlocal concealcursor=inc
 
 " ----------------------------------------------------------------------------
 " Mappings
@@ -290,10 +291,7 @@ let g:user_emmet_install_global = 1
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key='<C-m>'
 
-" ----------------------------------------------------------------------------
-" Reload Vimrc
-" ----------------------------------------------------------------------------
-map <leader>v :source ~/.vimrc<CR>
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+" Tern JS
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_hold'
+let g:tern_request_timeout = 1
