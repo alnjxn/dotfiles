@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="alnjxn"
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -58,3 +58,12 @@ export PGDATA='/usr/local/var/postgres'
 
 # aws cli
 source /usr/local/share/zsh/site-functions/_aws
+
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
