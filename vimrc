@@ -77,7 +77,7 @@ set incsearch
 
 let mapleader = " "
 " Load custom snippets directory
-set runtimepath+=~/.nvim/snippets/
+set runtimepath+=~/.vim/snippets/
 " Move Vim directories
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
@@ -256,6 +256,7 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Align blocks of text and keep them selected
 vmap < <gv
 vmap > >gv
+nmap =j :%!python -m json.tool<CR>
 
 " ----------------------------------------------------------------------------
 " JSDoc
