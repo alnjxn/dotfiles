@@ -31,7 +31,7 @@ alias dcu="docker-compose up"
 alias v="vim"
 alias sz="source ~/.zshrc"
 alias pg="postgres -D /usr/local/var/postgres"
-
+alias cl="clear"
 
 # rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
