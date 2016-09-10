@@ -1,4 +1,4 @@
-  " ----------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Vim Plug
 " ----------------------------------------------------------------------------
 " Required
@@ -61,19 +61,40 @@ call plug#end()
 " Core
 " ----------------------------------------------------------------------------
 set nocompatible
-filetype plugin indent on
 
-set encoding=utf8
+" START Sensible config
+filetype plugin indent on
+syntax enable
+set autoindent
 set backspace=indent,eol,start
+set complete-=i
+set smarttab
+set nrformats-=octal
+set ttimeout
+set ttimeoutlen=100
+set incsearch
+set laststatus=2
+set wildmenu
+set scrolloff=1
+set sidescrolloff=5
+set display+=lastline
+set encoding=utf8
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set formatoptions+=j
+setglobal tags-=./tags tags-=./tags; tags^=./tags;
+set autoread
+set history=1000
+set tabpagemax=50
+set sessionoptions-=options
+" END Sensible config
+
 set relativenumber number
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set visualbell
-set wildmenu
 set wildmode=full
-set incsearch
 
 let mapleader = " "
 " Load custom snippets directory
@@ -106,7 +127,6 @@ if has('gui_running')
 endif
 
 " Set ColorScheme
-syntax enable
 set background=dark
 set t_Co=256
 colorscheme base16-oceanicnext
@@ -209,9 +229,6 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 
 " Powerline Symbols
 let g:airline_powerline_fonts = 1
-
-set ttimeoutlen=50
-set laststatus=2
 
 " ----------------------------------------------------------------------------
 " Tabline
