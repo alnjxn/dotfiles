@@ -15,6 +15,11 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.5.1/libexec"
 export AWS_HOME=~/.aws
 export BLUEBIRD_DEBUG=0
+# FZF Settings
+export FZF_DEFAULT_OPTS='
+  --color fg:188,bg+:66,hl:174,hl+:174
+  --color spinner:186,pointer:16,info:104
+'
 
 # z jump fix
 [[ -s $(brew --prefix)/etc/profile.d/z.sh ]] && . $(brew --prefix)/etc/profile.d/z.sh
@@ -67,3 +72,5 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
