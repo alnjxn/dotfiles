@@ -10,7 +10,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
 # Environment Variables
 export NODE_ENV=development
-export EDITOR="vim"
+export EDITOR="nvim"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.5.1/libexec"
 export AWS_HOME=~/.aws
@@ -37,6 +37,10 @@ alias v="vim"
 alias sz="source ~/.zshrc"
 alias pg="postgres -D /usr/local/var/postgres"
 alias cl="clear"
+
+# dokku
+alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
+export DOKKU_HOST="dokku.wework.local"
 
 # rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -74,3 +78,5 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH=$PATH:$HOME/esp/xtensa-esp32-elf/bin
