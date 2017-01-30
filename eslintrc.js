@@ -1,6 +1,9 @@
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   rules: {
   },
@@ -9,9 +12,11 @@ module.exports = {
     browser: true,
   },
   extends: [
-    'airbnb',
+    'airbnb-base',
+    'plugin:react/recommended',
   ],
   plugins: [
+    'react',
   ],
 };
 
