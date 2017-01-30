@@ -1,28 +1,25 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="alnjxn"
-plugins=(git zsh-autosuggestions)
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
+
 # Environment Variables
 export NODE_ENV=development
 export EDITOR="nvim"
+export VISUAL=$EDITOR
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.5.1/libexec"
 export AWS_HOME=~/.aws
 export BLUEBIRD_DEBUG=0
+
 # FZF Settings
 export FZF_DEFAULT_OPTS='
   --color fg:188,bg+:66,hl:174,hl+:174
-  --color spinner:186,pointer:16,info:104
-'
-
-# z jump fix
-[[ -s $(brew --prefix)/etc/profile.d/z.sh ]] && . $(brew --prefix)/etc/profile.d/z.sh
+  --color spinner:186,pointer:16,info:104'
 
 # Brew Cask Options
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -50,9 +47,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
-# added by travis gem
-[ -f /Users/a.jackson/.travis/travis.sh ] && source /Users/a.jackson/.travis/travis.sh
-
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -68,15 +62,13 @@ export PGDATA='/usr/local/var/postgres'
 # aws cli
 source /usr/local/share/zsh/site-functions/_aws
 
-export LANG="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+export PATH="/Volumes/case-sensitive/esp-open-sdk/xtensa-lx106-elf/bin:$PATH"
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=$PATH:$HOME/esp/xtensa-esp32-elf/bin
+# esp32
+export PATH=$PATH:$HOME/.esp/xtensa-esp32-elf/bin
+
+# pandoc completions
+eval "$(pandoc --bash-completion)"
