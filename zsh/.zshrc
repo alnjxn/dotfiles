@@ -30,7 +30,8 @@ alias dml="docker-machine ls"
 alias di="docker images"
 alias drmi="docker rmi"
 alias dcu="docker-compose up"
-alias v="vim"
+# alias vim="nvim"
+alias v="nvim"
 alias sz="source ~/.zshrc"
 alias pg="postgres -D /usr/local/var/postgres"
 alias cl="clear"
@@ -72,3 +73,5 @@ export PATH=$PATH:$HOME/.esp/xtensa-esp32-elf/bin
 
 # pandoc completions
 eval "$(pandoc --bash-completion)"
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
