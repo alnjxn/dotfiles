@@ -1,5 +1,8 @@
 .installed
 .DS_Store
 .swp
-gitconfig
 .gitconfig
+.netrwhist
+plugged/
+autoload/
+undodir/
