@@ -20,13 +20,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " User Interface
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'trevordmiller/nova-vim'
-Plug 'alnjxn/oceanic-next-vim'
 Plug 'joshdick/onedark.vim'
+" Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
-" Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
@@ -49,7 +46,9 @@ call plug#end()
 " ----------------------------------------------------------------------------
 let mapleader = " "
 set termguicolors
+set background=dark
 colorscheme onedark
+
 " Change cursor in insert mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 " use tab to forward cycle
@@ -57,7 +56,8 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-set relativenumber number
+" set relativenumber number
+set number
 set completeopt-=preview
 set wrap
 set expandtab
@@ -72,11 +72,11 @@ set directory=~/.nvim/swap_files//
 set undodir=~/.nvim/undo_files//
 
 " highlight and remove trailing whitespace on save
-highlight ExtraWhitespace ctermbg=1 guibg=magenta
+highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
 
 " make the 81st column stand out
-highlight ColorColumn ctermbg=1 guibg=magenta
+highlight ColorColumn ctermbg=1 guibg=#be5046
 call matchadd('ColorColumn', '\%81v', 100)
 
 " Enable spell checking for markdown files
@@ -144,12 +144,6 @@ nmap <leader>5 <Plug>AirlineSelectTab5
 nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
-
-" ----------------------------------------------------------------------------
-" IndentLine
-" ----------------------------------------------------------------------------
-let g:indentLine_setColors = 8
-let g:indentLine_char = '¦'
 
 " ----------------------------------------------------------------------------
 " DelimitMate
@@ -226,9 +220,9 @@ nnoremap <silent> <leader>gf :<C-u>Gfetch<CR>
 " UltiSnips
 " ----------------------------------------------------------------------------
 let g:UltiSnipsEnableSnipMate = 1
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " ----------------------------------------------------------------------------
 " Tern
