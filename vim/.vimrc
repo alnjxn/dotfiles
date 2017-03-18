@@ -4,12 +4,10 @@
 " Required
 call plug#begin('~/.vim/plugged')
 
-" Interface, Theme, Colorscheme
-Plug 'alnjxn/base16-OceanicNext'
+" " Interface, Theme, Colorscheme
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'valloric/MatchTagAlways'
-Plug 'ryanoasis/vim-devicons'
 
 " File Explorer, Search
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -34,8 +32,6 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Javascript, Node, React
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'moll/vim-node'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -121,15 +117,10 @@ endif
 " ----------------------------------------------------------------------------
 " Theme
 " ----------------------------------------------------------------------------
-" Set Fonts for MacVim or GUI
-if has('gui_running')
-  set guifont=Meslo\ LG\ L\ Regular\ for\ Powerline\ Nerd\ Font\ Complete:h14
-endif
-
 " Set ColorScheme
+set termguicolors
 set background=dark
-set t_Co=256
-colorscheme base16-oceanicnext
+colorscheme onedark
 
 set hlsearch
 
@@ -145,24 +136,24 @@ exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' 
 exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', 'NONE')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', 'NONE')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', 'NONE')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', 'NONE')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', 'NONE')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', 'NONE')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', 'NONE')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', 'NONE')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', 'NONE')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 'NONE')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 'NONE')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', 'NONE')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', 'NONE')
+call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', 'NONE')
+call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', 'NONE')
+call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', 'NONE')
+call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', 'NONE')
+call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', 'NONE')
 
 " ----------------------------------------------------------------------------
 " Fugitive
@@ -222,13 +213,10 @@ nnoremap <leader>a :Ag<space>
 " Airline
 " ----------------------------------------------------------------------------
 set hidden
-let g:airline_theme='tomorrow'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 1
-
-" Powerline Symbols
-let g:airline_powerline_fonts = 1
 
 " ----------------------------------------------------------------------------
 " Tabline
