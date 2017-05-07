@@ -1,7 +1,7 @@
 " ----------------------------------------------------------------------------
 " Plugins
 " ----------------------------------------------------------------------------
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 " Tim Pope
 Plug 'tpope/vim-commentary'
@@ -21,7 +21,6 @@ Plug 'junegunn/fzf.vim'
 " User Interface
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'joshdick/onedark.vim'
-" Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
@@ -29,6 +28,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'timakro/vim-searchant'
 " Syntax
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -50,14 +50,20 @@ set background=dark
 colorscheme onedark
 
 " Change cursor in insert mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+set guicursor=
+      \n-v-c:block,
+      \i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,
+      \r-cr:hor20,
+      \o:hor50,
+      \sm:block-blinkwait175-blinkoff150-blinkon175
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" use tab to backward cycle
+" use shift-tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-" set relativenumber number
-set number
+set relativenumber number
+" set number
 set completeopt-=preview
 set wrap
 set expandtab
@@ -65,6 +71,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set autoindent
+set hlsearch
+set incsearch
+" set cursorline
 
 " Move nvim directories
 set backupdir=~/.nvim/backup_files//
@@ -76,12 +85,12 @@ highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
 
 " make the 81st column stand out
-highlight ColorColumn ctermbg=1 guibg=#be5046
-call matchadd('ColorColumn', '\%81v', 100)
+" highlight ColorColumn ctermbg=1 guibg=#be5046
+" call matchadd('ColorColumn', '\%81v', 100)
 
 " Enable spell checking for markdown files
-au BufRead *.md setlocal spell
-au BufRead *.markdown setlocal spell
+" au BufRead *.md setlocal spell
+" au BufRead *.markdown setlocal spell
 set spelllang=en
 set spellfile=$HOME/Documents/vim/spell/en.utf-8.add
 
@@ -93,10 +102,14 @@ autocmd! User GoyoLeave Limelight!
 autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
 
+highlight SearchCurrent ctermbg=1 guibg=#ffffff
+
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+let g:searchant_map_stop = 0
+nmap <silent> <Space> <Plug>SearchantStop
+
 " Align blocks of text and keep them selected
 vmap < <gv
 vmap > >gv
