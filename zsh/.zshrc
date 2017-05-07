@@ -17,9 +17,9 @@ export AWS_HOME=~/.aws
 export BLUEBIRD_DEBUG=0
 
 # FZF Settings
-export FZF_DEFAULT_OPTS='
-  --color fg:188,bg+:66,hl:174,hl+:174
-  --color spinner:186,pointer:16,info:104'
+# export FZF_DEFAULT_OPTS='
+#   --color fg:188,bg+:66,hl:174,hl+:174
+#   --color spinner:186,pointer:16,info:104'
 
 # Brew Cask Options
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -30,7 +30,8 @@ alias dml="docker-machine ls"
 alias di="docker images"
 alias drmi="docker rmi"
 alias dcu="docker-compose up"
-alias v="nvim"
+alias v="vim"
+alias n="nvim"
 alias sz="source ~/.zshrc"
 alias pg="postgres -D /usr/local/var/postgres"
 alias cl="clear"
@@ -62,15 +63,16 @@ export PGDATA='/usr/local/var/postgres'
 # aws cli
 source /usr/local/share/zsh/site-functions/_aws
 
-export PATH="/Volumes/case-sensitive/esp-open-sdk/xtensa-lx106-elf/bin:$PATH"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # esp32
-export PATH=$PATH:$HOME/.esp/xtensa-esp32-elf/bin
+# export PATH=$PATH:$HOME/.esp/xtensa-esp32-elf/bin
 
 # pandoc completions
 eval "$(pandoc --bash-completion)"
+
+#yarn
+export PATH="$PATH:`yarn global bin`"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
