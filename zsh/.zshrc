@@ -16,11 +16,6 @@ export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.5.1/libexec"
 export AWS_HOME=~/.aws
 export BLUEBIRD_DEBUG=0
 
-# FZF Settings
-# export FZF_DEFAULT_OPTS='
-#   --color fg:188,bg+:66,hl:174,hl+:174
-#   --color spinner:186,pointer:16,info:104'
-
 # Brew Cask Options
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -59,20 +54,20 @@ export DISABLE_AUTO_TITLE=true
 
 # postgres
 export PGDATA='/usr/local/var/postgres'
-
 # aws cli
 source /usr/local/share/zsh/site-functions/_aws
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# esp32
-# export PATH=$PATH:$HOME/.esp/xtensa-esp32-elf/bin
-
 # pandoc completions
 eval "$(pandoc --bash-completion)"
-
-#yarn
-export PATH="$PATH:`yarn global bin`"
-
+# zsh-autosuggest
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
+#ConTeXt
+export PATH="$PATH:/Users/ajackson/Applications/context/tex/texmf-osx-64/bin"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/ajackson/.nodenv/versions/7.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ajackson/.nodenv/versions/7.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/ajackson/.nodenv/versions/7.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ajackson/.nodenv/versions/7.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

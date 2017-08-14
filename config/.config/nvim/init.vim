@@ -34,6 +34,7 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'Raimondi/delimitMate'
+Plug 'digitaltoad/vim-pug'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -103,6 +104,12 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
 
 highlight SearchCurrent ctermbg=1 guibg=#ffffff
+
+" Enable mouse support
+set mouse=a
+if &term =~ '^screen'
+  set ttymouse=xterm2
+endif
 
 " ----------------------------------------------------------------------------
 " Mappings
