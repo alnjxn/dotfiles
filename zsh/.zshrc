@@ -6,6 +6,7 @@ plugins=(git z zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Environment Variables
 export NODE_ENV=development

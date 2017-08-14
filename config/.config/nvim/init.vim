@@ -28,7 +28,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'timakro/vim-searchant'
 " Syntax
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -49,9 +48,9 @@ let mapleader = " "
 set termguicolors
 set background=dark
 colorscheme onedark
+let g:onedark_termcolors=16
 
 " Change cursor in insert mode
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 set guicursor=
       \n-v-c:block,
       \i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,
@@ -64,7 +63,6 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 set relativenumber number
-" set number
 set completeopt-=preview
 set wrap
 set expandtab
@@ -74,24 +72,29 @@ set softtabstop=2
 set autoindent
 set hlsearch
 set incsearch
-" set cursorline
 
 " Move nvim directories
 set backupdir=~/.nvim/backup_files//
 set directory=~/.nvim/swap_files//
 set undodir=~/.nvim/undo_files//
 
+" Enable mouse support
+set mouse=a
+if &term =~ '^screen'
+  set ttymouse=xterm2
+endif
+
 " highlight and remove trailing whitespace on save
 highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
 
 " make the 81st column stand out
-" highlight ColorColumn ctermbg=1 guibg=#be5046
-" call matchadd('ColorColumn', '\%81v', 100)
+highlight ColorColumn ctermbg=1 guibg=#be5046
+call matchadd('ColorColumn', '\%81v', 100)
 
 " Enable spell checking for markdown files
-" au BufRead *.md setlocal spell
-" au BufRead *.markdown setlocal spell
+ au BufRead *.md setlocal spell
+ au BufRead *.markdown setlocal spell
 set spelllang=en
 set spellfile=$HOME/Documents/vim/spell/en.utf-8.add
 
@@ -100,22 +103,13 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Prettier integration
-autocmd FileType javascript set formatprg=prettier\ --stdin
+" autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
-
-highlight SearchCurrent ctermbg=1 guibg=#ffffff
-
-" Enable mouse support
-set mouse=a
-if &term =~ '^screen'
-  set ttymouse=xterm2
-endif
 
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
-let g:searchant_map_stop = 0
-nmap <silent> <Space> <Plug>SearchantStop
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Align blocks of text and keep them selected
 vmap < <gv
