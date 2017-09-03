@@ -30,6 +30,7 @@ alias v="vim"
 alias n="nvim"
 alias sz="source ~/.zshrc"
 alias pg="postgres -D /usr/local/var/postgres"
+alias redis="redis-server /usr/local/etc/redis.conf"
 alias cl="clear"
 
 # dokku
@@ -72,3 +73,4 @@ export PATH="$PATH:/Users/ajackson/Applications/context/tex/texmf-osx-64/bin"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/ajackson/.nodenv/versions/7.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ajackson/.nodenv/versions/7.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
