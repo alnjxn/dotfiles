@@ -66,4 +66,4 @@ eval "$(pandoc --bash-completion)"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
 #ConTeXt
 export PATH="$PATH:/Users/ajackson/Applications/context/tex/texmf-osx-64/bin"
-
+export PATH="$HOME/.fastlane/bin:$PATH"
