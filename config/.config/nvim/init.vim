@@ -91,6 +91,9 @@ endif
 highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
 
+" change colorcolumn highlight color
+highlight ColorColumn guibg=#24272e
+
 " Enable spell checking for markdown files
  au BufRead *.md setlocal spell
  au BufRead *.markdown setlocal spell
