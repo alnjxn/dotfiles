@@ -73,6 +73,8 @@ set softtabstop=2
 set autoindent
 set hlsearch
 set incsearch
+set cursorline
+set colorcolumn=120
 
 " Move nvim directories
 set backupdir=~/.nvim/backup_files//
@@ -88,10 +90,6 @@ endif
 " highlight and remove trailing whitespace on save
 highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
-
-" make the 121st column stand out
-highlight ColorColumn ctermbg=0 guibg=Black
-set colorcolumn=120
 
 " Enable spell checking for markdown files
  au BufRead *.md setlocal spell
