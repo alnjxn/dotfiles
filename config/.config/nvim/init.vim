@@ -37,7 +37,8 @@ Plug 'digitaltoad/vim-pug'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'alnjxn/babel-vim-snippets'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
 
 call plug#end()
 
@@ -88,9 +89,9 @@ endif
 highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
 
-" make the 81st column stand out
+" make the 121st column stand out
 highlight ColorColumn ctermbg=1 guibg=#be5046
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 100)
 
 " Enable spell checking for markdown files
  au BufRead *.md setlocal spell
