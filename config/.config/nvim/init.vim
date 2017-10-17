@@ -90,8 +90,8 @@ highlight ExtraWhitespace ctermbg=1 guibg=#be5046
 autocmd BufWritePre * StripWhitespace
 
 " make the 121st column stand out
-highlight ColorColumn ctermbg=1 guibg=#be5046
-call matchadd('ColorColumn', '\%121v', 100)
+highlight ColorColumn ctermbg=0 guibg=Black
+set colorcolumn=120
 
 " Enable spell checking for markdown files
  au BufRead *.md setlocal spell
