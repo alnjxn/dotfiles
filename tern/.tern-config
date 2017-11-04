@@ -15,7 +15,8 @@
     "es_modules": {},
     "node": {},
     "doc_comment": {
-      "fullDocs": true
+      "fullDocs": true,
+      "strong": true
     }
   }
 }
