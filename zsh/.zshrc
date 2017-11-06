@@ -32,8 +32,9 @@ alias sz="source ~/.zshrc"
 alias pg="postgres -D /usr/local/var/postgres"
 alias redis="redis-server /usr/local/etc/redis.conf"
 alias cl="clear"
+alias jn="jupyter notebook"
 
-# dokku
+## dokku
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 export DOKKU_HOST="dokku.wework.local"
 
@@ -42,7 +43,6 @@ export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
 # Setting ag as the default source for fzf
@@ -60,10 +60,7 @@ export PGDATA='/usr/local/var/postgres'
 source /usr/local/share/zsh/site-functions/_aws
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# pandoc completions
-eval "$(pandoc --bash-completion)"
 # zsh-autosuggest
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
-#ConTeXt
-export PATH="$PATH:/Users/ajackson/Applications/context/tex/texmf-osx-64/bin"
+# fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
