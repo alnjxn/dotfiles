@@ -7,6 +7,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/opt/python3/bin:$PATH"
 
 # Environment Variables
 export NODE_ENV=development
@@ -29,8 +30,11 @@ alias dcu="docker-compose up"
 alias v="vim"
 alias n="nvim"
 alias sz="source ~/.zshrc"
-alias pg="postgres -D /usr/local/var/postgres"
+# alias pg="postgres -D /usr/local/var/postgres"
+alias pg="postgres -D /usr/local/var/postgresql@9.6"
+# alias pg="pg_ctl -D /usr/local/var/postgresql@9.6 start"
 alias redis="redis-server /usr/local/etc/redis.conf"
+alias mdb="mongod --config /usr/local/etc/mongod.conf"
 alias cl="clear"
 alias jn="jupyter notebook"
 
@@ -64,3 +68,20 @@ source /usr/local/share/zsh/site-functions/_aws
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
 # fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/ajackson/.nodenv/versions/6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ajackson/.nodenv/versions/6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/ajackson/.nodenv/versions/6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ajackson/.nodenv/versions/6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# postgres 9.6
+export PATH=$PATH:/usr/local/opt/postgresql@9.6/bin:$PATH
+
+# BasicTeX
+export PATH=$PATH:/usr/local/texlive/2017basic/bin/x86_64-darwin
+
+# GoLang
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$(go env GOPATH)/bin
