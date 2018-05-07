@@ -35,6 +35,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'Raimondi/delimitMate'
 Plug 'digitaltoad/vim-pug'
+Plug 'fatih/vim-go'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -43,9 +44,9 @@ Plug 'epilande/vim-react-snippets'
 
 call plug#end()
 
-" ----------------------------------------------------------------------------
-" Core
-" ----------------------------------------------------------------------------
+" " ----------------------------------------------------------------------------
+" " Core
+" " ----------------------------------------------------------------------------
 let mapleader = " "
 set termguicolors
 set background=dark
@@ -104,10 +105,6 @@ set spellfile=$HOME/Documents/vim/spell/en.utf-8.add
 " Goyo integration with LimeLight
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-" Prettier integration
-" autocmd FileType javascript set formatprg=prettier\ --stdin
-" autocmd BufWritePre *.js :normal gggqG
 
 " ----------------------------------------------------------------------------
 " Mappings
@@ -209,6 +206,11 @@ let g:ale_sign_warning = '▵'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+let g:ale_lint_delay=100
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fixers = { 'javascript': ['eslint'] }
+let g:ale_fix_on_save = 1
 
 " ----------------------------------------------------------------------------
 " Deoplete
@@ -223,6 +225,25 @@ let g:deoplete#sources = {}
 let g:deoplete#sources['javascript.jsx'] = ['file', 'buffer', 'ultisnips', 'ternjs']
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
+
+" ----------------------------------------------------------------------------
+" Multiple Cursors
+" ----------------------------------------------------------------------------
+
+" This is a fix for working with Deoplete
+function! Multiple_cursors_before()
+  call deoplete#init#_disable()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+function! Multiple_cursors_after()
+  call deoplete#init#_enable()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
 
 " ----------------------------------------------------------------------------
 " Fuzzy file finder
