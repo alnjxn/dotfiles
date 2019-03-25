@@ -38,7 +38,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'heavenshell/vim-jsdoc'
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 

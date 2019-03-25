@@ -9,11 +9,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 " Javascript
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Typescript
+" Plug 'mhartington/nvim-typescript'
+" Plug 'HerringtonDarkholme/yats.vim'
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
@@ -27,6 +29,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Syntax
@@ -35,7 +38,8 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'Raimondi/delimitMate'
 Plug 'digitaltoad/vim-pug'
-Plug 'fatih/vim-go'
+Plug 'pedrohdz/vim-yaml-folds'
+" Plug 'fatih/vim-go'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -97,8 +101,8 @@ autocmd BufWritePre * StripWhitespace
 highlight ColorColumn guibg=#24272e
 
 " Enable spell checking for markdown files
- au BufRead *.md setlocal spell
- au BufRead *.markdown setlocal spell
+au BufRead *.md setlocal spell
+au BufRead *.markdown setlocal spell
 set spelllang=en
 set spellfile=$HOME/Documents/vim/spell/en.utf-8.add
 
@@ -107,7 +111,7 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " ----------------------------------------------------------------------------
-" Mappings
+""  Mappings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
@@ -188,6 +192,7 @@ call NERDTreeHighlightFile('styl', 'cyan', 'none', '#7fc1ca', 'none')
 call NERDTreeHighlightFile('css', 'cyan', 'none', '#7fc1ca', 'none')
 call NERDTreeHighlightFile('coffee', 'red', 'none', '#df8c8c', 'none')
 call NERDTreeHighlightFile('js', 'red', 'none', '#df8c8c', 'none')
+call NERDTreeHighlightFile('ts', 'green', 'none', '#a8ce93', 'none')
 call NERDTreeHighlightFile('php', 'magenta', 'none', '#9a93e1', 'none')
 call NERDTreeHighlightFile('ds_store', 'gray', 'none', '#6a7d89', 'none')
 call NERDTreeHighlightFile('gitconfig', 'gray', 'none', '#6a7d89', 'none')
@@ -204,9 +209,10 @@ let g:NERDTreeDirArrowCollapsible = '-'
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '▵'
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_lint_delay=100
+      \   'javascript': ['eslint'],
+      \   'typescript': ['tslint'],
+      \}
+let g:ale_lint_delay=200
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_fixers = { 'javascript': ['eslint'] }
@@ -216,34 +222,40 @@ let g:ale_fix_on_save = 1
 " Deoplete
 " ----------------------------------------------------------------------------
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'buffer', 'ultisnips', 'ternjs']
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
+let g:deoplete#sources#ternjs#types = 1
+"Add extra filetypes
+let g:deoplete#sources#ternjs#filetypes = [
+      \ 'jsx',
+      \ 'javascript.jsx'
+      \ ]
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#functions.javascript = [
+"   \ 'tern#Complete',
+"   \ 'jspc#omni'
+" \]
+" let g:deoplete#sources = {}
+" let g:deoplete#sources['javascript.jsx'] = ['file', 'buffer', 'ultisnips', 'ternjs']
+" let g:tern#command = ['tern']
+" let g:tern#arguments = ['--persistent']
 
 " ----------------------------------------------------------------------------
 " Multiple Cursors
 " ----------------------------------------------------------------------------
 
 " This is a fix for working with Deoplete
-function! Multiple_cursors_before()
-  call deoplete#init#_disable()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
+" function! Multiple_cursors_before()
+"   call deoplete#init#_disable()
+"   if exists(':NeoCompleteLock')==2
+"     exe 'NeoCompleteLock'
+"   endif
+" endfunction
 
-function! Multiple_cursors_after()
-  call deoplete#init#_enable()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
+" function! Multiple_cursors_after()
+"   call deoplete#init#_enable()
+"   if exists(':NeoCompleteUnlock')==2
+"     exe 'NeoCompleteUnlock'
+"   endif
+" endfunction
 
 " ----------------------------------------------------------------------------
 " Fuzzy file finder
@@ -274,9 +286,15 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 " ----------------------------------------------------------------------------
 " Tern
 " ----------------------------------------------------------------------------
-let g:tern_map_keys=1
-let g:tern_show_argument_hints='on_hold'
-let g:tern_request_timeout = 1
+" let g:tern_map_keys=1
+" let g:tern_show_argument_hints='on_hold'
+" let g:tern_request_timeout = 1
+" let g:tern_show_signature_in_pum = 1
+
+" " Set bin if you have many instalations
+" let g:deoplete#sources#ternjs#tern_bin = '~/.nodenv/versions/6.11.4/bin/tern'
+" let g:deoplete#sources#ternjs#timeout = 1
+" Whether to include the types of the completions in the result data. Default: 0
 
 " ----------------------------------------------------------------------------
 " JSDoc
@@ -286,3 +304,8 @@ let g:jsdoc_enable_es6 = 1
 let g:jsdoc_input_description = 1
 nmap <silent> <leader>J <Plug>(jsdoc)
 
+" ----------------------------------------------------------------------------
+" Indent Guides
+" ----------------------------------------------------------------------------
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1

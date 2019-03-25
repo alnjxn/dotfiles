@@ -1,13 +1,11 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="alnjxn"
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting node npm brew pip python tmux yarn)
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting node npm brew pip python tmux yarn aws)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="/usr/local/opt/python3/bin:$PATH"
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Environment Variables
 export NODE_ENV=development
@@ -85,3 +83,11 @@ export PATH=$PATH:/usr/local/texlive/2017basic/bin/x86_64-darwin
 # GoLang
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$(go env GOPATH)/bin
+
+ulimit -n 2048
+
+# AWS SAML
+alias get-aws-credentials='f(){ cmd="docker run -it --rm -v ~/.aws:/package/.aws onelogin-aws-saml sh -c \"python /package/samlapi.py "$@"\""; bash -c "${cmd}" unset -f f; }; f'
+
+# Balena Certs
+export NODE_EXTRA_CA_CERTS=~/.open-balena/ca.crt
