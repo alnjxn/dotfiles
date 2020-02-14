@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting node npm brew pip python tmux yarn aws)
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting node npm brew tmux)
 
 source $ZSH/oh-my-zsh.sh
 
