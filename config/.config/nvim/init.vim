@@ -9,11 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 " Javascript
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " Completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " User Interface
@@ -25,15 +22,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 " Syntax
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'mxw/vim-jsx'
-Plug 'Raimondi/delimitMate'
-Plug 'digitaltoad/vim-pug'
-Plug 'pedrohdz/vim-yaml-folds'
+" Plug 'sheerun/vim-polyglot'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -104,6 +94,9 @@ set spellfile=$HOME/Documents/vim/spell/en.utf-8.add
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" Use homebrew python3
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 " ----------------------------------------------------------------------------
 ""  Mappings
 " ----------------------------------------------------------------------------
@@ -158,11 +151,6 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 
 " ----------------------------------------------------------------------------
-" DelimitMate
-" ----------------------------------------------------------------------------
-let delimitMate_expand_cr=1
-
-" ----------------------------------------------------------------------------
 " NERD Tree
 " ----------------------------------------------------------------------------
 map <leader>\ :NERDTreeToggle<CR>
@@ -213,17 +201,6 @@ let g:ale_fixers = { 'javascript': ['eslint'] }
 let g:ale_fix_on_save = 1
 
 " ----------------------------------------------------------------------------
-" Deoplete
-" ----------------------------------------------------------------------------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#types = 1
-"Add extra filetypes
-let g:deoplete#sources#ternjs#filetypes = [
-      \ 'jsx',
-      \ 'javascript.jsx'
-      \ ]
-
-" ----------------------------------------------------------------------------
 " Fuzzy file finder
 " ----------------------------------------------------------------------------
 nnoremap <c-p> :FZF<cr>
@@ -244,21 +221,43 @@ nnoremap <silent> <leader>gf :<C-u>Gfetch<CR>
 " ----------------------------------------------------------------------------
 " UltiSnips
 " ----------------------------------------------------------------------------
-let g:UltiSnipsEnableSnipMate = 1
+" let g:UltiSnipsEnableSnipMate = 1
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-" ----------------------------------------------------------------------------
-" JSDoc
-" ----------------------------------------------------------------------------
-let g:jsdoc_allow_input_prompt = 1
-let g:jsdoc_enable_es6 = 1
-let g:jsdoc_input_description = 1
-nmap <silent> <leader>J <Plug>(jsdoc)
 
 " ----------------------------------------------------------------------------
 " Indent Guides
 " ----------------------------------------------------------------------------
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 2
+
+" ----------------------------------------------------------------------------
+" Coc
+" ----------------------------------------------------------------------------
+" Better display for messages
+set cmdheight=2
+
+" Always show signcolumns
+set signcolumn=yes
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

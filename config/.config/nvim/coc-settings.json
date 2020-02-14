@@ -1,0 +1,7 @@
+{
+  "javascript.suggestionActions.enabled": false,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "typescript"],
+  "diagnostic.errorSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.hintSign": "•"
+}
