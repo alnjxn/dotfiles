@@ -8,7 +8,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
-" Javascript
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -22,8 +21,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
-" Syntax
-" Plug 'sheerun/vim-polyglot'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -89,10 +86,6 @@ au BufRead *.md setlocal spell
 au BufRead *.markdown setlocal spell
 set spelllang=en
 set spellfile=$HOME/Documents/vim/spell/en.utf-8.add
-
-" Goyo integration with LimeLight
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 " Use homebrew python3
 let g:python3_host_prog = '/usr/local/bin/python3'
