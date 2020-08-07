@@ -1,0 +1,10 @@
+# Aliases
+alias dm="docker-machine"
+alias dml="docker-machine ls"
+alias di="docker images"
+alias drmi="docker rmi"
+alias dcu="docker-compose up"
+alias v="vim"
+alias n="nvim"
+alias sz="source ~/.zshrc"
+alias cl="clear"
