@@ -10,7 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " User Interface
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
