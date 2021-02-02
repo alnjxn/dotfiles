@@ -26,6 +26,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
+" Typescript
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -228,6 +230,8 @@ let g:indent_guides_guide_size = 2
 " ----------------------------------------------------------------------------
 " Coc
 " ----------------------------------------------------------------------------
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-pairs', 'coc-tsserver']
+
 " Better display for messages
 set cmdheight=2
 
