@@ -47,10 +47,6 @@ set guicursor=
       \r-cr:hor20,
       \o:hor50,
       \sm:block-blinkwait175-blinkoff150-blinkon175
-" use tab to forward cycle
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" use shift-tab to backward cycle
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 set relativenumber number
 set completeopt-=preview
@@ -230,7 +226,7 @@ let g:indent_guides_guide_size = 2
 " ----------------------------------------------------------------------------
 " Coc
 " ----------------------------------------------------------------------------
-let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-pairs', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-pairs', 'coc-tsserver', 'coc-html']
 
 " Better display for messages
 set cmdheight=2
@@ -238,9 +234,28 @@ set cmdheight=2
 " Always show signcolumns
 set signcolumn=yes
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

@@ -1,7 +1,7 @@
 # Environment Variables
 export NODE_ENV=development
-#export EDITOR="nvim"
-#export VISUAL=$EDITOR
+export EDITOR="nvim"
+export VISUAL=$EDITOR
 
 # Brew Cask Options
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
