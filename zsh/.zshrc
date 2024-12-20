@@ -1,28 +1,44 @@
-source ~/.zsh/antigen/antigen.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle z
-antigen bundle node
-antigen bundle npm
-antigen bundle brew
-antigen bundle tmux
+# history setup
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
 
+# completion using arrow keys (based on history)
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
+# ---- Eza (better ls) -----
+alias ls="eza --icons=always --oneline"
+alias lsa="eza --icons=always --oneline --long --all"
 
-# Load the theme.
-antigen theme robbyrussell
+# ---- Zoxide (better cd) ----
+eval "$(zoxide init zsh)"
+alias cd="z"
 
-# Tell Antigen that you're done.
-antigen apply
-
-# Source all the configs
+# ---- Source all the configs ----
 source ~/.zsh/aliases.zsh
-source ~/.zsh/exports.zsh
-source ~/.zsh/config.zsh
+#source ~/.zsh/exports.zsh
+#source ~/.zsh/config.zsh
+
+alias switch="darwin-rebuild switch --flake ~/.config/nix#macbook-air"
+
+# ---- nodenv Node environmnet manager ----
+eval "$(nodenv init - zsh)"
+
+# ---- Exports ----
+export EDITOR="nvim"
+export VISUAL=$EDITOR
