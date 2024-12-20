@@ -7,11 +7,12 @@ TERM = "xterm-256color"
 
 [window]
 decorations = "Buttonless"
-padding = { x = 20, y = 20 }
-
+padding = { x = 10, y = 10 }
+dynamic_padding = true
 option_as_alt = "Both"
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font Mono", style = "Thin" }
-bold = { family = "JetBrainsMono Nerd Font Mono", style = "Medium" }
+normal = { family = "FiraCode Nerd Font Mono", style = "Light" }
+bold = { family = "FiraCode Nerd Font Mono", style = "Medium" }
 size = 16
+offset = { x = 0, y = 1 }
